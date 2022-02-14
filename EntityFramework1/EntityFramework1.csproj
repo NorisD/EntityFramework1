@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0554B9A-A489-423D-97C6-60A1A55407B3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>EntityFramework1</RootNamespace>
+    <AssemblyName>EntityFramework1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\AziendaBll.cs" />
+    <Compile Include="BLL\DocumentoBll.cs" />
+    <Compile Include="BLL\TipoDocBll.cs" />
+    <Compile Include="FiltriBrogliaccio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FiltriBrogliaccio.Designer.cs">
+      <DependentUpon>FiltriBrogliaccio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AZIENDA.cs">
+      <DependentUpon>WideWorldImportersModl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CustomWideWorldImportersModel.cs" />
+    <Compile Include="Model\DEMODOCSDETT.cs">
+      <DependentUpon>WideWorldImportersModl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DEMODOCSMAST.cs">
+      <DependentUpon>WideWorldImportersModl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DEMODOC_DETT.cs">
+      <DependentUpon>WideWorldImportersModl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DEMODOC_MAST.cs">
+      <DependentUpon>WideWorldImportersModl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DEMOTIP_DOCU.cs">
+      <DependentUpon>WideWorldImportersModl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WideWorldImportersModl.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WideWorldImportersModl.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WideWorldImportersModl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WideWorldImportersModl.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WideWorldImportersModl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WideWorldImportersModl.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\WideWorldImportersModl.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WideWorldImportersModl.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\WideWorldImportersModl.edmx.diagram">
+      <DependentUpon>WideWorldImportersModl.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\WideWorldImportersModl.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WideWorldImportersModl.Context.cs</LastGenOutput>
+      <DependentUpon>WideWorldImportersModl.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\WideWorldImportersModl.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WideWorldImportersModl.edmx</DependentUpon>
+      <LastGenOutput>WideWorldImportersModl.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FiltriBrogliaccio.resx">
+      <DependentUpon>FiltriBrogliaccio.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
